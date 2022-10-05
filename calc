@@ -1,0 +1,58 @@
+// Usuário no GitHub: dancdev
+
+// Adaptado de: https://pastebin.com/ShL5WPW8
+// https://cursos.alura.com.br/forum/topico-acentuacao-de-caracteres-em-c-com-locale-h-38310
+// https://acervolima.com/funcao-sqrt-para-numeros-complexos-em-c/
+// https://acervolima.com/funcao-power-em-c-c/
+
+// Incluindo as bibliotecas para códigos e linguagem
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+int main(void){
+    
+      setlocale(LC_ALL, "Portuguese"); // Para evitar erros de acentos,vem da biblioteca locale.h
+      
+    float x=0, y=0, resultado=0; // Declaração das variável de operandos e resultado
+    int op=0; // Declação da variável de operação
+    do{
+        printf("Marcio Daniel Camargo da Silva\nAnálise e Desenvolvimento de Sistemas\nUniversidade LaSalle\nMatricula: 202211016"); // Printa informações minhas
+        printf("\n\nCALCULADORA\nDigite a operação:\n1 - SOMA\n2 - SUBTRAÇÃO\n3 - MULTIPLICAÇÃO\n4 - DIVISÃO\n5 - POTENCIAÇÃO\n6 - RAIZ QUADRADA\n\n"); // Printa informações da calculadora
+        scanf("%i", &op); // Escaneia e guarda os valores digitados
+        printf("\nDigite o primeiro número: ");
+        scanf("%f", &x); // Escaneia e guarda os valores digitados
+        
+    if (op != 6) // Se for uma conta de Raiz Quadrada, só pede um valor a ser digitado
+{
+       printf("\nDigite o segundo número: ");
+        scanf("%f", &y);
+}
+ 
+        switch(op){ // Os calculos dos tipos de operações, utilizando a função switch e cases, para determinar vários tipos de operações
+            case 1: 
+                resultado = x+y;
+                break;
+            case 2:
+                resultado = x-y;
+                break;
+            case 3:
+                resultado = x*y;
+                break;
+            case 4: 
+                resultado = x/y;
+                break;
+            case 5:
+                resultado = pow(x, y);
+                break;
+            case 6:
+                resultado = sqrt(x);
+                break;
+            default: // Se um dos valores digitados for incorreto, apresenta o erro
+                printf("\n Digite uma opção valida\n");
+                break;
+        }
+        printf("\n O resultado é: %0.2f", resultado); // Mostra o resultado do calculo
+        printf("\n\n Digite 1 para continuar: ");
+        scanf("%i", &op);
+    }while(op==1); // Retorna o código
+}
